@@ -1,18 +1,18 @@
 <?php
-// jobs.php - Display job listings from database
+
 $page_title = "Available Positions - Job Application System";
 
 include 'settings.php';
 include 'header.inc';
 include 'nav.inc';
 
-// Connect to database
+
 $conn = new mysqli($host, $user, $pwd, $sql_db);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Fetch all jobs from database
+
 $sql = "SELECT * FROM jobs ORDER BY DatePosted DESC";
 $result = $conn->query($sql);
 ?>
