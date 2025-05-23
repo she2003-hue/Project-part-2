@@ -100,7 +100,7 @@ if (empty($email)) $errors[] = "Email is required";
 if (empty($phone)) $errors[] = "Phone number is required";
 if (empty($skills)) $errors[] = "At least one skill must be selected";
 
-// Format validation
+
 if (!empty($first_name) && !validate_name($first_name)) {
     $errors[] = "First name must contain only letters and be max 20 characters";
 }
