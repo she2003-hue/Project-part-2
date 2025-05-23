@@ -1,0 +1,103 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 40px auto;
+    max-width: 900px;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+h2 {
+    text-align: center;
+    color: #2c3e50;
+}
+
+
+form {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+form input[type="text"],
+form input[type="password"],
+form select {
+    padding: 8px;
+    margin: 5px 0;
+    width: 100%;
+    max-width: 300px;
+    box-sizing: border-box;
+}
+
+form input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #3498db;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+    background-color: #2980b9;
+}
+
+
+p[style*="color:red"] {
+    font-weight: bold;
+    color: #e74c3c;
+    text-align: center;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: white;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+}
+
+th {
+    background-color: #3498db;
+    color: white;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+
+a {
+    color: #e74c3c;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+table form {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 600px) {
+    table form {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    table form select,
+    table form input[type="submit"] {
+        margin-left: 10px;
+    }
+}
