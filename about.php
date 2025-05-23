@@ -1,5 +1,5 @@
 <?php
-// about.php - About Us page for TechCorp Solutions
+
 $page_title = "About Us - TechCorp Solutions";
 $page_description = "About TechCorp Solutions - Meet our development team";
 $page_keywords = "team, developers, group, students, about us";
