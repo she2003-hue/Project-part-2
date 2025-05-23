@@ -3,11 +3,11 @@ session_start();
 include("settings.php");
 $conn = mysqli_connect($host, $user, $pwd, $sql_db);
 
-// Handle login
+
 $login_error = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"])) {
     $username = mysqli_real_escape_string($conn, $_POST["username"]);
-    $password = $_POST["password"]; // Don't escape password before verify
+    $password = $_POST["password"]; 
 
     $query = "SELECT * FROM managers WHERE Username='$username'";
     $result = mysqli_query($conn, $query);
@@ -20,14 +20,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"])) {
     }
 }
 
-// Logout
+
 if (isset($_GET["logout"])) {
     session_destroy();
     header("Location: manage.php");
     exit;
 }
 
-// Not logged in? Show login form
+
 if (!isset($_SESSION["admin"])) {
 ?>
     <h2>Manager Login</h2>
@@ -41,11 +41,11 @@ if (!isset($_SESSION["admin"])) {
     exit;
 }
 
-// You're logged in now — start management interface
+
 echo "<h2>Welcome, " . $_SESSION["admin"] . " <a href='manage.php?logout=true' style='font-size:small;'>(Logout)</a></h2>";
 ?>
 
-<!-- Search & Sort Form -->
+
 <form method="get" action="manage.php">
     Search (Job Ref or Name): <input type="text" name="search">
     Sort by:
@@ -57,21 +57,21 @@ echo "<h2>Welcome, " . $_SESSION["admin"] . " <a href='manage.php?logout=true' s
     <input type="submit" value="Search">
 </form>
 
-<!-- Delete EOIs by Job Ref -->
+
 <form method="post" action="manage.php">
     Delete all EOIs for Job Ref: <input type="text" name="del_ref" required>
     <input type="submit" name="delete" value="Delete">
 </form>
 
 <?php
-// Handle Delete
+
 if (isset($_POST["delete"])) {
     $del_ref = mysqli_real_escape_string($conn, $_POST["del_ref"]);
     $conn->query("DELETE FROM eoi WHERE job_ref = '$del_ref'");
     echo "<p>Deleted EOIs with Job Reference: $del_ref</p>";
 }
 
-// Handle Status Update
+
 if (isset($_POST["update"])) {
     $eoi_id = intval($_POST["eoi_id"]);
     $new_status = $_POST["new_status"];
@@ -79,7 +79,7 @@ if (isset($_POST["update"])) {
     echo "<p>Status updated for EOI $eoi_id</p>";
 }
 
-// Display EOIs
+
 $where = "1";
 $order = "EOInumber";
 
